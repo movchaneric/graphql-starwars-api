@@ -32,7 +32,7 @@ npm start
 
 ## Running GraphQL Queries
 
-You can run these queries within GraphiQL, alternatively you can run them within a tool such as Postman. To do so ensure you POST the query / mutation in the body and set the content-type to GraphQL.
+You can run these queries within GraphiQL
 
 #### Find a film by Id
 
