@@ -34,6 +34,10 @@ npm start
 
 You can run these queries within GraphiQL
 
+```js
+localhost:3000/graphql
+```
+
 #### Find a film by Id
 
 ```js
