@@ -26,8 +26,6 @@ npm install
 
 #### Run the project
 
-##### Running in Production
-
 ```js
 npm start
 ```
