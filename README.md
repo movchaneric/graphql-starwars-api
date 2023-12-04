@@ -1,5 +1,7 @@
 # GraphQL + Express.js Star Wars API
 
+![Screenshot](./Screenshot%202023-12-02%20at%2018.08.34.png)
+
 ## SWAPI REST API
 
 Star Wars REST API at http://swapi.co/ to demonstrate a GraphQL Server running on Express.
@@ -35,7 +37,7 @@ npm start
 You can run these queries within GraphiQL
 
 ```js
-localhost:3000/graphql
+localhost: 3000 / graphql;
 ```
 
 #### Find a film by Id
