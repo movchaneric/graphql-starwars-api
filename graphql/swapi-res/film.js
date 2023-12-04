@@ -10,7 +10,7 @@ const starshipType = require("./starship");
 const vehicleType = require("./vehicle");
 const planetType = require("./planet");
 
-const getFilteredData = require("../util/loader");
+const {getFilteredData} = require("../util/loader");
 
 const filmType = new GraphQLObjectType({
   name: "Film",

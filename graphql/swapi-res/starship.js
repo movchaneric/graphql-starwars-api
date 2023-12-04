@@ -1,5 +1,7 @@
 const { GraphQLObjectType, GraphQLString, GraphQLList } = require("graphql");
 
+const { getFilteredData } = require("../util/loader");
+
 module.exports = new GraphQLObjectType({
   name: "Starship",
   fields: () => {
