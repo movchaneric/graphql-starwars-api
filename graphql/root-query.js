@@ -11,6 +11,7 @@ const filmType = require("./swapi-res/film");
 const characterType = require("./swapi-res/charecter");
 const specieType = require("./swapi-res/specie");
 const starshipType = require("./swapi-res/starship");
+const vehicleType = require("./swapi-res/vehicle");
 
 module.exports = new GraphQLObjectType({
   name: "RootQuery",
@@ -120,6 +121,27 @@ module.exports = new GraphQLObjectType({
       },
     },
 
-    
+    vehicle: {
+      type: vehicleType,
+      args: {
+        id: {
+          type: GraphQLID,
+        },
+      },
+      resolve: async (_, args) => {
+        const res = await axios.get(
+          `https://swapi.dev/api/vehicles/${args.id}/`
+        );
+        return res.data;
+      },
+    },
+
+    vehicles: {
+      type: new GraphQLList(vehicleType),
+      resolve: async (parent, args) => {
+        const res = await axios.get(`https://swapi.dev/api/vehicles/`);
+        return res.data.results;
+      },
+    },
   }),
 });
