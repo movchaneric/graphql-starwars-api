@@ -1,6 +1,6 @@
 # GraphQL + Express.js Star Wars API
 
-![Screenshot](./Screenshot%202023-12-02%20at%2018.08.34.png)
+![Screenshot](./Screenshot%202023-12-04%20at%2019.52.19.png)
 
 ## SWAPI REST API
 
