@@ -1,5 +1,3 @@
-const axios = require("axios");
-
 const {
   GraphQLObjectType,
   GraphQLString,
@@ -10,72 +8,71 @@ const {
 const specieType = require("./specie");
 const starshipType = require("./starship");
 const vehicleType = require("./vehicle");
-const peopleType = require("./people");
 const planetType = require("./planet");
-
 const getFilteredData = require("../util/loader");
 
-const swapiLinks = {
-  species: "https://swapi.dev/api/species",
-  starships: "https://swapi.dev/api/starships",
-};
-
-module.exports = new GraphQLObjectType({
+const filmType = new GraphQLObjectType({
   name: "Film",
-  fields: () => ({
-    title: {
-      type: GraphQLString,
-    },
-    episode_id: {
-      type: GraphQLInt,
-    },
-    opening_crawl: {
-      type: GraphQLString,
-    },
-    director: {
-      type: GraphQLString,
-    },
-    producer: {
-      type: GraphQLString,
-    },
-    release_date: {
-      type: GraphQLString,
-    },
-    species: {
-      type: GraphQLList(specieType),
-      resolve: (film, parent, args) => {
-        return getFilteredData(film.species);
+  fields: () => {
+    const charecterType = require("./charecter");
+    return {
+      title: {
+        type: GraphQLString,
       },
-    },
-    starships: {
-      type: GraphQLList(starshipType),
-      resolve: (film, parent, args) => {
-        return getFilteredData(film.starships);
+      episode_id: {
+        type: GraphQLInt,
       },
-    },
-    vehicles: {
-      type: GraphQLList(vehicleType),
-      resolve: (film, parent, args) => {
-        return getFilteredData(film.vehicles);
+      opening_crawl: {
+        type: GraphQLString,
       },
-    },
-    characters: {
-      type: GraphQLList(peopleType),
-      resolve: (film, parent, args) => {
-        return getFilteredData(film.characters);
+      director: {
+        type: GraphQLString,
       },
-    },
-    planets: {
-      type: GraphQLList(planetType),
-      resolve: (film, parent, args) => {
-        return getFilteredData(film.planets);
+      producer: {
+        type: GraphQLString,
       },
-    },
-    created: {
-      type: GraphQLString,
-    },
-    edited: {
-      type: GraphQLString,
-    },
-  }),
+      release_date: {
+        type: GraphQLString,
+      },
+      characters: {
+        type: new GraphQLList(charecterType),
+        resolve: (film, parent, args) => {
+          return getFilteredData(film.characters);
+        },
+      },
+      planets: {
+        type: new GraphQLList(planetType),
+        resolve: (film, parent, args) => {
+          return getFilteredData(film.planets);
+        },
+      },
+      created: {
+        type: GraphQLString,
+      },
+      edited: {
+        type: GraphQLString,
+      },
+    };
+  },
 });
+
+module.exports = filmType;
+
+// species: {
+//   type: new GraphQLList(specieType),
+//   resolve: (film, parent, args) => {
+//     return getFilteredData(film.species);
+//   },
+// },
+// starships: {
+//   type: new GraphQLList(starshipType),
+//   resolve: (film, parent, args) => {
+//     return getFilteredData(film.starships);
+//   },
+// },
+// vehicles: {
+//   type: new GraphQLList(vehicleType),
+//   resolve: (film, parent, args) => {
+//     return getFilteredData(film.vehicles);
+//   },
+// },

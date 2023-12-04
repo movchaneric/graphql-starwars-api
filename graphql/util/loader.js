@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 module.exports = (urls) => {
-  //   console.log("ids: " + ids);
+  // console.log("urls are : " , urls);
   return axios.all(
     urls.map((url) => {
       return axios
@@ -13,3 +13,5 @@ module.exports = (urls) => {
     })
   );
 };
+
+
