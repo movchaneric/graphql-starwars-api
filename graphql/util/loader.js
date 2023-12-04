@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-module.exports = (urls) => {
+const getFilteredData = (urls) => {
   // console.log("urls are : " , urls);
   return axios.all(
     urls.map((url) => {
@@ -14,4 +14,16 @@ module.exports = (urls) => {
   );
 };
 
+const getHomeWorld = (parent) => {
+  return axios
+    .get(parent.homeworld)
+    .then((res) => {
+      return res.data;
+    })
+    .catch((err) => console.log("Error getting singleItem:", err));
+};
 
+module.exports = {
+  getFilteredData,
+  getHomeWorld,
+};

@@ -5,10 +5,11 @@ const {
   GraphQLList,
 } = require("graphql");
 
-const specieType = require("./specie");
+const specieType = require("./specie"); //Next - resolve circul module problem
 const starshipType = require("./starship");
 const vehicleType = require("./vehicle");
 const planetType = require("./planet");
+
 const getFilteredData = require("../util/loader");
 
 const filmType = new GraphQLObjectType({
@@ -46,6 +47,24 @@ const filmType = new GraphQLObjectType({
           return getFilteredData(film.planets);
         },
       },
+      species: {
+        type: new GraphQLList(specieType),
+        resolve: (film, parent, args) => {
+          return getFilteredData(film.species);
+        },
+      },
+      starships: {
+        type: new GraphQLList(starshipType),
+        resolve: (film, parent, args) => {
+          return getFilteredData(film.starships);
+        },
+      },
+      vehicles: {
+        type: new GraphQLList(vehicleType),
+        resolve: (film, parent, args) => {
+          return getFilteredData(film.vehicles);
+        },
+      },
       created: {
         type: GraphQLString,
       },
@@ -57,22 +76,3 @@ const filmType = new GraphQLObjectType({
 });
 
 module.exports = filmType;
-
-// species: {
-//   type: new GraphQLList(specieType),
-//   resolve: (film, parent, args) => {
-//     return getFilteredData(film.species);
-//   },
-// },
-// starships: {
-//   type: new GraphQLList(starshipType),
-//   resolve: (film, parent, args) => {
-//     return getFilteredData(film.starships);
-//   },
-// },
-// vehicles: {
-//   type: new GraphQLList(vehicleType),
-//   resolve: (film, parent, args) => {
-//     return getFilteredData(film.vehicles);
-//   },
-// },
