@@ -2,6 +2,14 @@
 
 ![Screenshot](./Screenshot%202023-12-04%20at%2019.52.19.png)
 
+## DEMO
+
+
+
+https://github.com/movchaneric/graphql-starwars-api/assets/60579831/d1d49f90-1d84-4b2e-9007-cf0bcc1bf20f
+
+
+
 ## SWAPI REST API
 
 Star Wars REST API at http://swapi.co/ to demonstrate a GraphQL Server running on Express.
