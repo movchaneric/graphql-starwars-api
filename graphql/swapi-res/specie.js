@@ -49,13 +49,13 @@ module.exports = new GraphQLObjectType({
         type: new GraphQLList(filmType),
         resolve: (specie, parent, args) => {
           console.log("species output:", specie);
-          return getFilteredData(specie.films);
+          return dataLoaderResolver().loadMany(specie.films);
         },
       },
       people: {
         type: new GraphQLList(charecterType),
         resolve: (specie, parent, args) => {
-          return getFilteredData(specie.people);
+          return dataLoaderResolver().loadMany(specie.people);
         },
       },
       homeworld: {

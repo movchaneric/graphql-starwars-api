@@ -1,12 +1,6 @@
 const axios = require("axios");
-const {
-  GraphQLObjectType,
-  GraphQLID,
-  GraphQLSchema,
-  GraphQLList,
-} = require("graphql");
+const { GraphQLObjectType, GraphQLID, GraphQLList } = require("graphql");
 
-//TODO: Search a solution on how to avoid one ugly file with all types combined!!!!
 const filmType = require("./swapi-res/film");
 const characterType = require("./swapi-res/charecter");
 const specieType = require("./swapi-res/specie");
@@ -49,6 +43,7 @@ module.exports = new GraphQLObjectType({
       },
       resolve: async (parent, args) => {
         const res = await axios.get(`https://swapi.dev/api/people/${args.id}/`);
+        console.log('res.data in root-query:', res.data)
         return res.data;
       },
     },

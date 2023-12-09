@@ -10,7 +10,7 @@ const starshipType = require("./starship");
 const vehicleType = require("./vehicle");
 const planetType = require("./planet");
 
-const {getFilteredData} = require("../util/loader");
+const { getFilteredData, dataLoaderResolver } = require("../util/loader");
 
 const filmType = new GraphQLObjectType({
   name: "Film",
@@ -37,32 +37,33 @@ const filmType = new GraphQLObjectType({
       },
       characters: {
         type: new GraphQLList(charecterType),
-        resolve: (film, parent, args) => {
-          return getFilteredData(film.characters);
+        resolve: (film, args) => {
+          console.log(dataLoaderResolver().loadMany(film.characters));
+          return dataLoaderResolver().loadMany(film.characters); //using dataLoader
         },
       },
       planets: {
         type: new GraphQLList(planetType),
         resolve: (film, parent, args) => {
-          return getFilteredData(film.planets);
+          return dataLoaderResolver().loadMany(film.planets);
         },
       },
       species: {
         type: new GraphQLList(specieType),
         resolve: (film, parent, args) => {
-          return getFilteredData(film.species);
+          return dataLoaderResolver().loadMany(film.species);
         },
       },
       starships: {
         type: new GraphQLList(starshipType),
         resolve: (film, parent, args) => {
-          return getFilteredData(film.starships);
+          return dataLoaderResolver().loadMany(film.starships);
         },
       },
       vehicles: {
         type: new GraphQLList(vehicleType),
         resolve: (film, parent, args) => {
-          return getFilteredData(film.vehicles);
+          return dataLoaderResolver().loadMany(film.vehicles);
         },
       },
       created: {

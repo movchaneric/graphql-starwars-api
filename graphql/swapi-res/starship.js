@@ -54,14 +54,13 @@ module.exports = new GraphQLObjectType({
       films: {
         type: new GraphQLList(filmType),
         resolve: (starship, parent, args) => {
-          console.log("species output:", specie);
-          return getFilteredData(starship.films);
+          return dataLoaderResolver().loadMany(starship.films);
         },
       },
       pilos: {
         type: new GraphQLList(charecterType),
         resolve: (starship, parent, args) => {
-          return getFilteredData(starship.people);
+          return dataLoaderResolver().loadMany(starship.people);
         },
       },
     };

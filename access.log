@@ -1,0 +1,4 @@
+::1 - - [09/Dec/2023:14:49:01 +0000] "GET /graphql HTTP/1.1" 200 927959 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+::1 - - [09/Dec/2023:14:49:01 +0000] "POST /graphql? HTTP/1.1" 200 33893 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+::1 - - [09/Dec/2023:14:49:12 +0000] "POST /graphql? HTTP/1.1" 200 522 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+::1 - - [09/Dec/2023:14:51:02 +0000] "POST /graphql? HTTP/1.1" 200 1263 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"

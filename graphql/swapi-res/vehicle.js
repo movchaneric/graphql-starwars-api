@@ -47,13 +47,13 @@ module.exports = new GraphQLObjectType({
       pilots: {
         type: new GraphQLList(charecterType),
         resolve: (vehicle, parent, args) => {
-          return getFilteredData(vehicle.pilots);
+          return dataLoaderResolver().loadMany(vehicle.pilots);
         },
       },
       films: {
         type: new GraphQLList(filmType),
         resolve: (vehicle, parent, args) => {
-          return getFilteredData(vehicle.films);
+          return dataLoaderResolver().loadMany(vehicle.films);
         },
       },
     };

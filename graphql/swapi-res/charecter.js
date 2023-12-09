@@ -6,6 +6,7 @@ const characterType = new GraphQLObjectType({
   name: "Character",
   fields: () => {
     const filmType = require("./film");
+    const planetType = require("./planet");
     return {
       name: {
         type: GraphQLString,
@@ -35,7 +36,7 @@ const characterType = new GraphQLObjectType({
       films: {
         type: new GraphQLList(filmType),
         resolve: (people, parent, args) => {
-          return getFilteredData(people.films);
+          return dataLoaderResolver().loadMany(people.films);
         },
       },
       homeworld: {
