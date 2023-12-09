@@ -1,7 +1,7 @@
 const axios = require("axios");
 const DataLoader = require("dataloader");
 
-//TODO: My attempt on using DataLoader that didnt work
+//DataLoader function
 const dataLoaderResolver = () => {
   return new DataLoader((urls) => {
     return axios.all(
