@@ -24,6 +24,7 @@ The following NPM modules are required in package.json:
 - express-graphql
 - graphql
 - axios
+- dataloader
 - nodemon
 
 Install with:
